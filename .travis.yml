@@ -4,9 +4,19 @@ jdk:
 - oraclejdk7
 cache:
   directories:
-  - $HOME/.m2
+  - "$HOME/.m2"
 branches:
   only:
   - release/3.0.0
+  - /v\d+\.\d+.\d+/
 script:
 - mvn clean install
+deploy:
+  provider: releases
+  api_key:
+    secure: riRyVh6dH5ftenJYn/o0w3efb2IJI2YtNpbXKRClcGOhoBx3Iqqeuri3vlmTcnCXaR+rCxjn589v3F1ePdxEp32YNbpCO+/THBULC19ieZxsY2/BhJEVOTbo5CHRjDRXjfmCLLQnvX9ZN9a5Mvj5a2fmA8PgCyCh6Qg9grW5TtqexgugA+ACU3UOqm5P0AEipYV8LbmeBPNZmFEYjJh4n851kej3yICyoMBOxMTgrghRdoRx2xBC5mSp/nLJMSr8cIXmIrTWPBD+zc7S3F/5QwjWJ4fFtFxi3pnL9jjz7VIces7oBGgTAi1i4mzKnd4ZVw3ID+LWwCWYGQZ+SoSXW7vGY/vsnBFK27NVeeCTPCRUT7Wgfj5Ct1mmZC096dgura1K/pmO92DFOYbx76u3WBdHoTsGVEIslZ2OfOj1hmnMvYjuXgucW9BwGmrZIebI5u7hKG8LtNpHAk7xOPEJro0TquV9ngEHeZ7972a8NEZLElEdUtPLGtGWO+wTELwKtKdJ0k18BQFhqUtxuB/Y2sJ76JjSYALWzY6aSqU4uKCr91Keq9DQ93BaBNPCtkVnReePjQqXJp3w5NDmqDJ/+LlqAGRVPghoaXSD+gfweDWnCCsc9uWS/0IZuK5ML7wzMJXybaVKCOMFNDyhPL7OYPvmSoS75FF91OboV6k9kTk=
+  file_glob: true
+  file: "opendj-server-legacy/target/package/OpenDJ-*.zip"
+  skip_cleanup: true
+  on:
+    tags: true

@@ -1,4 +1,4 @@
-OpenDJ
+OpenDJ - release branch 3.0.0 with some bugs backported [![Build Status](https://travis-ci.org/dsbenghe/OpenDJ.svg?branch=release/3.0.0)](https://travis-ci.org/dsbenghe/OpenDJ)
 
 This Maven project contains the OpenDJ product suite, comprising of an open
 source LDAP Directory Server and client tools. All modules are 100%
